@@ -5,7 +5,7 @@
       <ValidationObserver v-slot="{ handleSubmit }">
         <form @submit.prevent="handleSubmit(onSubmit)"
               class="w-full bg-white shadow-lg mt-5 rounded-sm p-12">
-        <ValidationProvider :rules="{ required: true }" v-slot="{ errors }">
+        <ValidationProvider name="name" :rules="{ required: true }" v-slot="{ errors }">
           <TextInput
               :error="errors[0]"
               :value="model.name"
@@ -14,7 +14,7 @@
               v-model="model.name"
           />
         </ValidationProvider>
-        <ValidationProvider :rules="{ required: true, email: true }" v-slot="{ errors }">
+        <ValidationProvider name="email" :rules="{ required: true, email: true }" v-slot="{ errors }">
           <TextInput
               :error="errors[0]"
               :value="model.email"
@@ -23,7 +23,7 @@
               v-model="model.email"
           />
         </ValidationProvider>
-        <ValidationProvider :rules="{ required: true, length: 6 }" v-slot="{ errors }">
+        <ValidationProvider name="password" :rules="{ required: true, minmax: [6, 20] }" v-slot="{ errors }">
           <TextInput
               :error="errors[0]"
               :value="model.password"

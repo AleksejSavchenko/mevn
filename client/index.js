@@ -4,7 +4,7 @@ import router from './routes'
 import Router from 'vue-router'
 import store from './store'
 import { ValidationProvider, ValidationObserver, extend } from 'vee-validate';
-import { required, email, length } from 'vee-validate/dist/rules';
+import { required, email } from 'vee-validate/dist/rules';
 import Main from './pages/Main.vue'
 
 // Add a rules.
@@ -15,13 +15,17 @@ extend('email', {
 });
 extend('required', {
   ...required,
-  message: 'This field is required'
-});
-extend('length', {
-  ...length,
   message: (fieldName) => `This ${fieldName} field is required`
 });
-
+extend('minmax', {
+  validate(value, { min, max }) {
+    return value.length >= min && value.length <= max;
+  },
+  params: ['min', 'max'],
+  message: (fieldName, placeholders) => {
+    return `The ${fieldName} field must have at least ${placeholders.min} characters and ${placeholders.max} characters at most`
+  }
+});
 
 // Register it globally
 Vue.component('ValidationProvider', ValidationProvider);
@@ -29,7 +33,7 @@ Vue.component('ValidationObserver', ValidationObserver);
 
 Vue.use(Router)
 
-const app = new Vue({
+new Vue({
   el: '#app',
   router,
   store,
