@@ -24,7 +24,7 @@ app.get('*', (req, res) => {
 })
 
 Mongoose.connect(config.databaseUrl, { useNewUrlParser: true })
-
-app.listen(3000, () =>
-  console.log(`Server started successfully on ${3000} port.`)
+const port = 3001
+app.listen(port, () =>
+  console.log(`Server started successfully on ${port} port.`)
 )
