@@ -1,9 +1,10 @@
 import Vue from 'vue'
-import { ValidationProvider, ValidationObserver, extend } from 'vee-validate';
-import { required, email, length } from 'vee-validate/dist/rules';
 import './styles/main.css'
 import router from './routes'
 import Router from 'vue-router'
+import store from './store'
+import { ValidationProvider, ValidationObserver, extend } from 'vee-validate';
+import { required, email, length } from 'vee-validate/dist/rules';
 import Main from './pages/Main.vue'
 
 // Add a rules.
@@ -31,5 +32,6 @@ Vue.use(Router)
 const app = new Vue({
   el: '#app',
   router,
+  store,
   render: h => h(Main)
 })

@@ -43,6 +43,7 @@
 
 <script>
   import TextInput from '@components/TextInput.vue'
+  import { POST_REGISTER } from '@store/auth/actions'
 
   export default {
     name: 'Register',
@@ -58,7 +59,7 @@
     }),
     methods: {
       onSubmit() {
-        console.log('Sent', this.model)
+        this.$store.dispatch(POST_REGISTER, this.model)
       }
     }
   }

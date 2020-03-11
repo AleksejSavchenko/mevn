@@ -9,6 +9,8 @@
         "@": "./",
         "@components": "./client/components",
         "@pages": "./client/pages",
+        "@store": "./client/store",
+        "@utils": "./client/utils",
         "@config": "./server/config",
         "@routes": "./server/routes",
         "@controllers": "./server/controllers"
