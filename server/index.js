@@ -1,6 +1,7 @@
 import Express from 'express'
 import Mongoose from 'mongoose'
 import path from 'path'
+import BodyParser from 'body-parser'
 import config from '@config'
 import v1Router from '@routes'
 import Webpack from 'webpack'
@@ -9,6 +10,8 @@ import WebpackDevMiddleware from 'webpack-dev-middleware'
 import WebpackHotMiddleware from 'webpack-hot-middleware'
 
 const app = Express()
+
+app.use(BodyParser.json())
 
 const compiler = Webpack(WebpackConfig)
 app.use(WebpackDevMiddleware(compiler, {

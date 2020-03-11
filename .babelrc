@@ -13,7 +13,8 @@
         "@utils": "./client/utils",
         "@config": "./server/config",
         "@routes": "./server/routes",
-        "@controllers": "./server/controllers"
+        "@controllers": "./server/controllers",
+        "@models": "./server/models"
       }
     }]
   ]
