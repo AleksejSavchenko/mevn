@@ -22,7 +22,7 @@ UserSchema.pre('save', function() {
 })
 
 UserSchema.post('save', async function() {
-  await new Mail('confirm-account',)
+  await new Mail('confirm-account')
     .to(this.email, this.name)
     .subject('Please confirm your account')
     .data({

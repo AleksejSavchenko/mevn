@@ -1,8 +1,6 @@
 import User from '@models/User'
 
-const login = (req, res) => {
-
-}
+const login = (req, res) => {}
 
 const register = async (req, res) => {
   const { name, email, password } = req.body
