@@ -14,8 +14,8 @@ export default {
 </script>
 
 <style>
-  .loader {
-    display: inline-flex;
-    width: 20px;
-  }
+.loader {
+  display: inline-flex;
+  width: 20px;
+}
 </style>

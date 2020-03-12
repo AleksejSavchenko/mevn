@@ -1,7 +1,7 @@
 <template>
   <button
     class="w-full mt-3 py-4 text-white text-sm rounded-sm focus:outline-none hover:bg-blue-500"
-    :class="{'bg-blue-600': !loading, 'bg-blue-400': loading}"
+    :class="{ 'bg-blue-600': !loading, 'bg-blue-400': loading }"
     type="submit"
     :disable="disable"
     :loading="loading"

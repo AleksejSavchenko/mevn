@@ -74,8 +74,7 @@ export default {
   methods: {
     onSubmit() {
       this.toggleLoading()
-      this.$store.dispatch(POST_REGISTER, this.model)
-      .then(() => {
+      this.$store.dispatch(POST_REGISTER, this.model).then(() => {
         this.toggleLoading()
         this.$router.push('/')
       })
