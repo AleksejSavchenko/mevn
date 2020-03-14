@@ -14,6 +14,7 @@
           "@utils": "./client/utils",
           "@config": "./server/config",
           "@routes": "./server/routes",
+          "@validators": "./server/validators",
           "@controllers": "./server/controllers",
           "@models": "./server/models"
         }

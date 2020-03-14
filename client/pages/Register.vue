@@ -11,6 +11,7 @@
             name="name"
             :rules="{ required: true }"
             v-slot="{ errors }"
+            ref="name"
           >
             <TextInput
               :error="errors[0]"
@@ -24,6 +25,7 @@
             name="email"
             :rules="{ required: true, email: true }"
             v-slot="{ errors }"
+            ref="email"
           >
             <TextInput
               :error="errors[0]"
@@ -37,6 +39,7 @@
             name="password"
             :rules="{ required: true, minmax: [6, 20] }"
             v-slot="{ errors }"
+            ref="password"
           >
             <TextInput
               :error="errors[0]"
@@ -77,6 +80,17 @@ export default {
       this.$store.dispatch(POST_REGISTER, this.model).then(() => {
         this.toggleLoading()
         this.$router.push('/')
+      })
+      .catch(error => {
+        this.toggleLoading()
+
+        Object.keys(error.response.data).forEach(field => {
+          this.$refs[field].applyResult({
+            errors: [error.response.data[field]], // array of string errors
+            valid: false, // boolean state
+            failedRules: {} // should be empty since this is a manual error.
+          });
+        })
       })
     },
     toggleLoading() {
