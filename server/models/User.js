@@ -36,4 +36,8 @@ UserSchema.methods.generateToken = function() {
   return jwt.sign({ id: this._id }, config.jwtSecret)
 }
 
+UserSchema.methods.comparePasswords = function(plainPassword) {
+  return Bcrypt.compareSync(plainPassword, this.password)
+}
+
 export default mongoose.model('User', UserSchema)

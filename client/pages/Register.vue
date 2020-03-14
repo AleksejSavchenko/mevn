@@ -77,21 +77,23 @@ export default {
   methods: {
     onSubmit() {
       this.toggleLoading()
-      this.$store.dispatch(POST_REGISTER, this.model).then(() => {
-        this.toggleLoading()
-        this.$router.push('/')
-      })
-      .catch(error => {
-        this.toggleLoading()
-
-        Object.keys(error.response.data).forEach(field => {
-          this.$refs[field].applyResult({
-            errors: [error.response.data[field]], // array of string errors
-            valid: false, // boolean state
-            failedRules: {} // should be empty since this is a manual error.
-          });
+      this.$store
+        .dispatch(POST_REGISTER, this.model)
+        .then(() => {
+          this.toggleLoading()
+          this.$router.push('/')
         })
-      })
+        .catch(error => {
+          this.toggleLoading()
+
+          Object.keys(error.response.data).forEach(field => {
+            this.$refs[field].applyResult({
+              errors: [error.response.data[field]], // array of string errors
+              valid: false, // boolean state
+              failedRules: {} // should be empty since this is a manual error.
+            })
+          })
+        })
     },
     toggleLoading() {
       this.loading = !this.loading
