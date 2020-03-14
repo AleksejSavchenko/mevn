@@ -1,7 +1,8 @@
 <template>
-  <div class="my-32">
-    <h1 class="text-center text-gray-800">
-      Mevn Auth
-    </h1>
-  </div>
+	<div class="my-32">
+		<h1 class="text-center text-gray-800" v-if="!isAuth">
+			Mevn Auth
+		</h1>
+		<h1 class="text-center text-gray-800" v-else>Welcome, {{ user.name }}</h1>
+	</div>
 </template>

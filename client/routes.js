@@ -4,19 +4,19 @@ import Register from '@pages/Register.vue'
 import Home from '@pages/Home.vue'
 
 export default new Router({
-  mode: 'history',
-  routes: [
-    {
-      path: '/auth/login',
-      component: Login
-    },
-    {
-      path: '/auth/register',
-      component: Register
-    },
-    {
-      path: '/',
-      component: Home
-    }
-  ]
+	mode: 'history',
+	routes: [
+		{
+			path: '/auth/login',
+			component: Login
+		},
+		{
+			path: '/auth/register',
+			component: Register
+		},
+		{
+			path: '/',
+			component: Home
+		}
+	]
 })

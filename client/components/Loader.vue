@@ -1,21 +1,21 @@
 <template>
-  <img class="loader" :src="loadingImage" alt="loading" />
+	<img class="loader" :src="loadingImage" alt="loading" />
 </template>
 
 <script>
-import loadingImage from '@images/loading.gif'
+	import loadingImage from '@images/loading.gif'
 
-export default {
-  name: 'Loader',
-  data: () => ({
-    loadingImage
-  })
-}
+	export default {
+		name: 'Loader',
+		data: () => ({
+			loadingImage
+		})
+	}
 </script>
 
 <style>
-.loader {
-  display: inline-flex;
-  width: 20px;
-}
+	.loader {
+		display: inline-flex;
+		width: 20px;
+	}
 </style>
